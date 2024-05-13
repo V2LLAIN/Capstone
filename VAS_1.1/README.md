@@ -33,8 +33,11 @@
 <br>
 * **execute python script**
     * cd src
+      
     * python [main.py](/src/main.py) - Test using a video
+      
     * python [main_set_test.py](/src/main_set_test.py) - Test for many videos
+      
     * python [main_IPcamera.py](/src/main_IPcamera.py) - Test for IP camera
 
 # Repo
