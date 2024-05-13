@@ -28,6 +28,9 @@
             * source activate (env_name)
             <br>
         * (If Installed -> Deactivate)
+     
+          #####
+    rviz2 -d install/urdf_tutorial_r2d2/share/urdf_tutorial_r2d2/r2d2.rviz
             * conda deactivate
             <br>
 <br>
