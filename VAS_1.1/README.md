@@ -32,6 +32,7 @@
             <br>
 <br>
 * **execute python script**
+  
     * cd src
       
     * python [main.py](/src/main.py) - Test using a video
