@@ -14,8 +14,10 @@ import gdown
 ######################################################################
 
 ######################## User가 적어줘야 하는 사항 ########################  
-input_path = '/home/work/d.jpeg'
-output_path = '/home/work/d_1.jpeg'
+# input_path = '/home/work/d.jpeg'
+# output_path = '/home/work/d_1.jpeg'
+input_path = '/home/work/s.png'
+output_path = '/home/work/s_1.png'
 true_string = "LSCU1077379"  # 정답으로 주어진 11개의 글자
 ######################################################################
 
@@ -77,7 +79,17 @@ predicted_string = result
 
 # Accuracy, F1-Score, Precision, Recall 계산을 위해 문자열을 문자 단위로 리스트 변환
 true_chars = list(true_string)
+
+# 예측된 문자열의 길이가 정답 문자열과 다를 경우, 부족하거나 남는 부분을 모두 틀린 것으로 처리
 predicted_chars = list(predicted_string)
+
+# 두 리스트의 길이를 일치시킴
+if len(predicted_chars) < len(true_chars):
+    # 예측된 문자열의 길이가 짧으면 남은 부분을 틀린 것으로 처리
+    predicted_chars.extend([''] * (len(true_chars) - len(predicted_chars)))
+elif len(predicted_chars) > len(true_chars):
+    # 예측된 문자열이 길면 정답의 길이만큼만 자름
+    predicted_chars = predicted_chars[:len(true_chars)]
 
 # 정확도, F1 스코어, 정밀도, 재현율 계산
 accuracy = accuracy_score(true_chars, predicted_chars)
@@ -85,11 +97,12 @@ f1 = f1_score(true_chars, predicted_chars, average='macro')
 precision = precision_score(true_chars, predicted_chars, average='macro')
 recall = recall_score(true_chars, predicted_chars, average='macro')
 
-# print(f"Accuracy: {accuracy}")
-# print(f"F1-Score: {f1}")
-# print(f"Precision: {precision}")
-# print(f"Recall: {recall}")
+# 결과 출력
+print(f"Accuracy: {accuracy}")
+print(f"F1-Score: {f1}")
+print(f"Precision: {precision}")
+print(f"Recall: {recall}")
 
 # 추가 조건: 예측된 문자열의 길이가 정답 문자열의 길이와 다르거나, 정확도가 0.7보다 작은 경우 이미지 파일명 출력
 if len(predicted_string) != len(true_string) or accuracy < 0.7:
-    print(f"Predicted string length mismatch or low accuracy: {true_string}")
+    print(f"String length mismatch or low accuracy: {true_string}")
