@@ -15,7 +15,7 @@ gdown.download('https://drive.google.com/uc?id=14Fht1QQJ2gMlk4N1ERCRuElg8JfjrWWR
 ```
 
 
-### cf-2) User가 필수로 적어줘야 하는 항목:
+### cf-2)  User가 필수로 적어줘야 하는 항목:
 ```python
 input_path = '/home/work/cargo.jpeg'     # src_img
 output_path = '/home/work/cargo_1.jpeg'  # 개선된 img
