@@ -1,7 +1,8 @@
+
+```python
 cd OCR 
-
 conda env create -f ocr.yml
-
-#pip install requirements.txt
-
+# pip install -r requirements.txt
+python setup.py develop --no_cuda_ext
 python restore.py
+```
