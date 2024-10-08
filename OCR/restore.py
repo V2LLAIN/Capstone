@@ -92,13 +92,4 @@ recall = recall_score(true_chars, predicted_chars, average='macro')
 
 # 추가 조건: 예측된 문자열의 길이가 정답 문자열의 길이와 다르거나, 정확도가 0.7보다 작은 경우 이미지 파일명 출력
 if len(predicted_string) != len(true_string) or accuracy < 0.7:
-    print(f"Predicted string length mismatch or low accuracy. Image file: {image_file}")
-
-
-# V2LLAIN
-# chan4im@o.cnu.ac.kr
-
-# git config --global user.name "V2LLAIN"
-# git config --global user.email "chan4im@o.cnu.ac.kr"
-git config user.name "V2LLAIN"
-git config user.email "chan4im@o.cnu.ac.kr"
+    print(f"Predicted string length mismatch or low accuracy: {true_string}")
